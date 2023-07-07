@@ -4,7 +4,7 @@ body{
 
 .mycontainer{
     width: 90%;
-    margin: 0 auto;
+    margin: 4% auto;
     display:flex;
     flex-direction: column;
 }
