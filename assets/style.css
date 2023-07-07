@@ -3,7 +3,7 @@ body{
 }
 
 .mycontainer{
-    width: 70%;
+    width: 90%;
     margin: 0 auto;
     display:flex;
     flex-direction: column;
@@ -25,6 +25,6 @@ body{
 }
 
 .mycontainer-registration{
-    width: 80%;
+    width: 95%;
     margin: 0 auto;
 }
