@@ -1,0 +1,25 @@
+body{
+    background-color: dodgerblue;
+}
+
+.mycontainer{
+    width: 70%;
+    margin: 0 auto;
+    display:flex;
+    flex-direction: column;
+}
+
+.myh1{
+    margin:5px;
+    text-align: center;
+}
+
+.login-form{
+    width: 100%;
+    margin: 5% auto;
+    border: 1px solid black;
+    padding: 40px;
+    border-radius: 1.5%;
+    background-color: white;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
+}
