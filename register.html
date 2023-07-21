@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     <div class="mycontainer-registration">
@@ -16,17 +16,17 @@
                         <div class="row mb-2">
                             <div class="col">
                                 <label for="Last" class="form-label">Enter your First Name</label>
-                              <input type="text" class="form-control" placeholder="Last name" aria-label="First name">
+                              <input type="text" class="form-control" placeholder="Last name" aria-label="First name" required>
                             </div>
                             <div class="col">
                                 <label for="firstname" class="form-label">Enter your Last Name</label>
-                              <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+                              <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" required>
                             </div>
                           </div>
                           
                         <div class="mb-3 mb-0">
                             <label for="email" class="form-label">Enter your Email</label>
-                            <input type="email" name="email" id="email" class="form-control" placeholder="Enter your Email">
+                            <input type="email" name="email" id="email" class="form-control" placeholder="Enter your Email" required>
                         </div>
                         <div class="form-check mb-2">
                             <input class="form-check-input" type="checkbox" id="gridCheck">
@@ -36,17 +36,17 @@
                           </div>
                         <div class="mb-3">
                             <label for="username" class="form-label">Username</label>
-                            <input type="text" name="username" id="username" class="form-control" placeholder="Enter your Username">
+                            <input type="text" name="username" id="username" class="form-control" placeholder="Enter your Username" required>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" name="password" id="password" class="form-control" placeholder="Enter your Password">
+                            <input type="password" name="password" id="password" class="form-control" placeholder="Enter your Password" required>
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Verify Password</label>
-                            <input type="password" name="password" id="password" class="form-control" placeholder="Verify your Password">
+                            <input type="password" name="password" id="password" class="form-control" placeholder="Verify your Password" required>
                         </div>
                         <div class="mb-3">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="sign-up-btn">
                                 Register
                               </button>
                               
@@ -60,7 +60,7 @@
                                       Your account has been created. Please log in to continue.
                                     </div>
                                     <div class="modal-footer">
-                                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="redirectToLink()">Login</button>
+                                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="redirectToIndex()">Login</button>
                                     </div>
                                   </div>
                                 </div>
@@ -76,10 +76,14 @@
 
 
     <script>
-        function redirectToLink() {
-          window.location.href = 'index.html';
-        }
+        
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <script>function redirectToIndex() {
+        window.location.href = "index.html";
+    }
+    </script>
+    <script>pages.loadFor("register")</script>
 </body>
 </html>
