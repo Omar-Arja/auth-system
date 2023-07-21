@@ -6,7 +6,8 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 
 $query = $mysqli->prepare('select id, first_name, last_name, email, username, password
-from users');
+from users 
+where username=?');
 $query->bind_param('s', $username);
 $query->execute();
 
@@ -19,7 +20,7 @@ if ($num_rows == 0) {
     $response['status'] = "user not found";
 } else {
     if (password_verify($password, $hashed_password)) {
-        $response['status'] = 'logged in';
+        $response['status'] = 'success';
         $response['user_id'] = $id;
         $response['first_name'] = $first_name;
         $response['last_name'] = $last_name;

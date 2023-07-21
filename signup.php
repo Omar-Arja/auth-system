@@ -25,5 +25,4 @@ if ($username_exists == 0) {
     $response['status'] = "failed";
 }
 
-header('Content-Type: application/json');
 echo json_encode($response);
