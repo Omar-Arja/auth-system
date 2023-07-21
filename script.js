@@ -28,7 +28,7 @@ pages.page_index = () => {
                 if (data.status == "success") {
                     localStorage.setItem('first_name', data.first_name);
                     localStorage.setItem('last_name', data.last_name);
-                    window.location.href = 'landing.html';
+                    window.location.href = 'home.html';
                 } else {
                     alert('Login failed. Please check your username and password.');
                 }
@@ -90,12 +90,12 @@ pages.page_register = () => {
     });
 }
 
-pages.page_landing = () => {
-    const title = document.getElementById("landing-title");
-    const firstName = localStorage.getItem('first_name');
-    const lastName = localStorage.getItem('last_name');
+pages.page_home = () => {
+    const title = document.getElementById("home-title");
+    const first_name = localStorage.getItem('first_name');
+    const last_name = localStorage.getItem('last_name');
 
-    title.textContent = `Welcome, ${firstName} ${lastName}!`;
+    title.textContent = `Welcome, ${first_name} ${last_name}!`;
 }
 
 pages.loadFor = (page) => {
