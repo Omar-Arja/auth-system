@@ -1,5 +1,6 @@
 const pages = {}
 
+let user_name;
 pages.base_url = "http://localhost/auth-system/";
 
 pages.page_index = () => {
@@ -8,6 +9,13 @@ pages.page_index = () => {
     document.getElementById('login-btn').addEventListener('click', function () {
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
+
+        if (!username || !password) {
+            alert('Please fill in all fields correctly.');
+            return;
+        }
+
+        user_name = username;
 
         const data = {
             username: username,
@@ -93,7 +101,8 @@ pages.page_register = () => {
 }
 
 pages.page_landing = () => {
-    console.log("Hello from landing page")
+    const title = document.getElementById("landing-title");
+    title.innerHTML = `Welcome ${user_name}!`;
 }
 
 pages.loadFor = (page) => {
