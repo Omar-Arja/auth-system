@@ -9,7 +9,6 @@ pages.page_index = () => {
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
 
-        // Create a data object with the user input
         const data = {
             username: username,
             password: password
@@ -43,50 +42,54 @@ pages.page_index = () => {
 
 pages.page_register = () => {
     const register_url = pages.base_url + "signup.php";
-    document.getElementById('sign-up-btn').addEventListener('click', function () {
-        const firstName = document.getElementById('first-name').value;
-        const lastName = document.getElementById('last-name').value;
+    document.getElementById('sign-up-btn').addEventListener('click', async function () {
+        const first_name = document.getElementById('first-name').value;
+        const last_name = document.getElementById('last-name').value;
         const email = document.getElementById('email').value;
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
-        const verifyPassword = document.getElementById('verify-password').value;
-        if (password !== verifyPassword) {
-          alert('Passwords do not match. Please try again.');
-          return;
+        const verify_password = document.getElementById('verify-password').value;
+        if (password !== verify_password) {
+            alert('Passwords do not match. Please try again.');
+            return;
         }
-    
-        const data = {
-          first_name: firstName,
-          last_name: lastName,
-          email: email,
-          username: username,
-          password: password
-        };
-    
-        fetch(register_url, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        })
-        .then(response => response.json())
-        .then(data => {
-          console.log(data);
-    
-          if (data.status === "success") {
-
-            const modal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
-            modal.show();
-          } else {
-
-            alert('Registration failed. Please try again.');
+        if (!first_name || !last_name || !email || !username || !password || password !== verify_password) {
+            alert('Please fill in all fields correctly.');
+            return;
           }
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
-      });
+
+        const data = {
+            first_name: first_name,
+            last_name: last_name,
+            email: email,
+            username: username,
+            password: password
+        };
+
+        console.log(JSON.stringify(data));
+
+        try {
+            const response = await fetch(register_url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            data = await response.json();
+            console.log(data);
+
+            if (data.status === "success") {
+                const modal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
+                modal.show();
+            } else {
+                alert('Registration failed. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    });
 }
 
 pages.page_landing = () => {
